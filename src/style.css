@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    overflow: hidden;
+}
+
+.calculator {
+    background: #fff;
+    padding: 16px;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 0 12px 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+#display {
+    width: 100%;
+    height: 180px;
+    font-size: 28px;
+    margin-bottom: 15px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+    flex-shrink: 0;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    overflow-y: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    text-align: right;
+    cursor: text;
+    position: relative;
+}
+
+#display-content {
+    display: inline;
+    unicode-bidi: plaintext;
+    width: 100%;
+    text-align: right;
+}
+
+.char-span {
+    display: inline;
+}
+
+#custom-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 32px;
+    background-color: #007bff;
+    margin-left: -1px;
+    margin-right: -1px;
+    vertical-align: middle;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+    flex: 1;
+}
+
+button {
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+button:hover, button:active {
+    background-color: #ddee0f;
+}
+
+button.operator {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+button.equals {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#history-btn {
+    width: 100%;
+    height: 52px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* 모달 창 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 360px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+#historyListContainer {
+    width: 100%;
+    flex: 1;
+    min-height: 150px;
+    max-height: 250px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.history-item {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    word-break: break-all;
+    white-space: pre-wrap;
+    transition: background 0.1s;
+}
+
+.history-item:hover {
+    background-color: #f1f3f5;
+}
+
+.history-item.selected {
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    height: 42px;
+    font-size: 14px;
+}
+
+.btn-use { background-color: #007bff; color: white; }
+.btn-del { background-color: #dc3545; color: white; }
+.btn-clear { background-color: #ff4d4d; color: white; width: 100%; height: 38px; font-size: 13px;}
+.close-modal {
+    background-color: #ccc;
+    width: 100%;
+    height: 38px;
+    font-size: 13px;
+    margin-top: 5px;
+}
