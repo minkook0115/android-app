@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>안드로이드 계산기 v2.0</title>
+  <script type="module" crossorigin src="/assets/index-tvAuNsAp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-VSxEJ-1F.css">
+</head>
+<body>
+
+<div class="calculator">
+    <div class="app-title">안드로이드 계산기 v2.0</div>
+    
+    <div id="display">
+        <div id="display-content"></div>
+    </div>
+    
+    <div class="buttons">
+        <button data-action="C" style="background-color: #ff6b6b; color:white;">C</button>
+        <button data-action="(">(</button>
+        <button data-action=")">)</button>
+        <button data-action="/" class="operator">/</button>
+        
+        <button data-action="7">7</button>
+        <button data-action="8">8</button>
+        <button data-action="9">9</button>
+        <button data-action="*" class="operator">*</button>
+        
+        <button data-action="4">4</button>
+        <button data-action="5">5</button>
+        <button data-action="6">6</button>
+        <button data-action="-" class="operator">-</button>
+        
+        <button data-action="1">1</button>
+        <button data-action="2">2</button>
+        <button data-action="3">3</button>
+        <button data-action="+" class="operator">+</button>
+        
+        <button data-action="0">0</button>
+        <button data-action=".">.</button>
+        <button id="btn-equals" class="equals">=</button>
+        <button id="btn-del">⌫</button>
+    </div>
+    <button id="history-btn">📜 계산 기록 관리</button>
+</div>
+
+<!-- 기록 관리 모달 창 -->
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <h3>계산 기록 관리</h3>
+        <div id="historyListContainer"></div>
+        <div class="modal-buttons">
+            <button id="btn-use-formula" class="btn-use">선택 수식 가져오기</button>
+            <button id="btn-delete-selected" class="btn-del">선택 삭제</button>
+        </div>
+        <button id="btn-clear-all" class="btn-clear">기록 전체 삭제</button>
+        <button id="btn-close-modal" class="close-modal">닫기</button>
+    </div>
+</div>
+
+</body>
+</html>
